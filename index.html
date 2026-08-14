@@ -110,8 +110,17 @@
   .host .child { font-family:var(--serif); font-size:18px; color:var(--ink); margin-top:6px; }
   .host .child b { color:var(--pink); font-weight:700; }
   .host-sep { width:1px; background:var(--line); margin:4px 20px; }
-  .contact-actions { margin:38px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:10px; max-width:340px; }
+  .contact-actions { margin:38px auto 0; display:grid; grid-template-columns:1fr; gap:10px; max-width:220px; }
   .contact-toggle { display:block; background:none; border:1px solid var(--line); color:var(--ink-soft); border-radius:30px; padding:11px 10px; font-family:var(--serif2); font-size:13px; cursor:pointer; letter-spacing:.2px; white-space:nowrap; }
+  .contact-panel { max-width:340px; margin:14px auto 0; padding:2px 16px 14px; border:1px solid var(--line); border-radius:14px; background:rgba(35,32,32,.72); text-align:left; }
+  .contact-panel[hidden] { display:none; }
+  .cg-title { font-family:var(--serif2); font-size:10px; letter-spacing:4px; color:var(--pink); text-transform:uppercase; margin:16px 0 2px; }
+  .contact-row { display:flex; align-items:center; gap:7px; padding:10px 0; border-top:1px solid var(--line); }
+  .cg-title + .contact-row { border-top:none; }
+  .cr-role { flex:none; width:52px; font-size:11px; color:var(--ink-soft); letter-spacing:.5px; }
+  .cr-name { flex:1; min-width:0; font-family:var(--serif); font-size:14px; color:var(--ink); }
+  .cr-btn { flex:none; text-decoration:none; border:1px solid var(--line); border-radius:999px; padding:5px 11px; font-family:var(--serif2); font-size:11px; line-height:1.2; color:var(--ink-soft); white-space:nowrap; }
+  .cr-btn.call { color:var(--pink); border-color:rgba(210,154,164,.55); }
 
   /* ── 가족 : 사진 자리 ── */
   .family-section { padding-top:34px; }
@@ -170,11 +179,12 @@
   .map-card.map-fallback::before { content:"📍"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:34px; }
   .map-overlay { position:absolute; left:0; right:0; bottom:0; padding:11px 15px; font-size:12px; color:#fff; text-align:right; background:linear-gradient(transparent, rgba(0,0,0,.6)); }
   .place-name { font-family:var(--serif); font-size:19px; }
+  .place-hall { font-size:13px; color:var(--pink); letter-spacing:1px; margin-top:4px; }
   .place-line { display:flex; align-items:center; justify-content:center; gap:8px; margin:6px 0 16px; flex-wrap:wrap; }
   .place-addr { color:var(--ink-soft); font-size:14px; }
   .addr-copy { background:var(--bg2); color:var(--pink); border:1px solid rgba(210,154,164,.55); border-radius:999px; padding:4px 10px; font-family:var(--serif2); font-size:11px; line-height:1.2; cursor:pointer; white-space:nowrap; }
   .btn-row { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
-  .mini-btn { background:var(--bg2); color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:9px 16px; font-family:var(--serif2); font-size:13px; cursor:pointer; }
+  .mini-btn { display:inline-flex; align-items:center; justify-content:center; text-decoration:none; background:var(--bg2); color:var(--ink); border:1px solid var(--line); border-radius:8px; padding:9px 16px; font-family:var(--serif2); font-size:13px; cursor:pointer; }
   .mini-btn.primary { background:var(--pink); color:#231; border-color:var(--pink); font-weight:700; }
   .way { text-align:left; margin-top:32px; display:grid; gap:22px; }
   .way h4 { font-family:var(--serif); font-size:15px; color:var(--pink); margin-bottom:6px; }
@@ -185,7 +195,8 @@
   .acc-sheet { max-width:340px; margin:0 auto; padding:12px; border:1px solid var(--line); border-radius:12px; background:rgba(35,32,32,.72); display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px; }
   .acc-row { min-width:0; display:grid; gap:6px; background:var(--bg2); border:1px solid var(--line); border-top:3px solid var(--pink); border-radius:8px; padding:11px 9px 10px; text-align:center; }
   .acc-row .who { font-size:11px; color:var(--ink-soft); line-height:1.35; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .acc-row .num { font-family:var(--serif); font-size:11px; color:var(--ink); line-height:1.4; overflow-wrap:anywhere; word-break:break-word; }
+  .acc-row .num { font-family:var(--serif); font-size:11.5px; color:var(--ink); line-height:1.4; overflow-wrap:anywhere; word-break:break-word; }
+  .acc-row .bank { display:block; font-family:var(--serif2); font-size:10px; color:var(--pink); letter-spacing:.5px; margin-bottom:3px; }
   .copy-btn { justify-self:center; background:transparent; color:var(--pink); border:1px solid var(--pink); border-radius:999px; padding:4px 10px; font-size:11px; cursor:pointer; font-family:var(--serif2); white-space:nowrap; line-height:1.2; }
 
   /* ── 방명록 : 2초 로테이션 ── */
@@ -288,8 +299,17 @@
 평생토록 동역할 것을 약속하는 날
 함께 축복해 주실 소중한 분들을 모십니다.</p>
     <div class="contact-actions reveal">
-      <button class="contact-toggle" onclick="showToast('신랑 연락처를 넣어 전화·문자를 연결할 수 있어요')">신랑에게 연락하기</button>
-      <button class="contact-toggle" onclick="showToast('신부 연락처를 넣어 전화·문자를 연결할 수 있어요')">신부에게 연락하기</button>
+      <button class="contact-toggle" id="contactBtn" aria-expanded="false" aria-controls="contactPanel" onclick="toggleContacts()">연락처 보기</button>
+    </div>
+    <div class="contact-panel" id="contactPanel" hidden>
+      <div class="cg-title">groom</div>
+      <div class="contact-row"><span class="cr-role">신랑</span><span class="cr-name">진민수</span><a class="cr-btn call" href="tel:01044057959">전화</a><a class="cr-btn" href="sms:01044057959">문자</a></div>
+      <div class="contact-row"><span class="cr-role">아버지</span><span class="cr-name">진주관</span><a class="cr-btn call" href="tel:01030104815">전화</a><a class="cr-btn" href="sms:01030104815">문자</a></div>
+      <div class="contact-row"><span class="cr-role">어머니</span><span class="cr-name">배문주</span><a class="cr-btn call" href="tel:01044224549">전화</a><a class="cr-btn" href="sms:01044224549">문자</a></div>
+      <div class="cg-title">bride</div>
+      <div class="contact-row"><span class="cr-role">신부</span><span class="cr-name">이유빈</span><a class="cr-btn call" href="tel:01088496449">전화</a><a class="cr-btn" href="sms:01088496449">문자</a></div>
+      <div class="contact-row"><span class="cr-role">아버지</span><span class="cr-name">이창헌</span><a class="cr-btn call" href="tel:01032116449">전화</a><a class="cr-btn" href="sms:01032116449">문자</a></div>
+      <div class="contact-row"><span class="cr-role">어머니</span><span class="cr-name">임수경</span><a class="cr-btn call" href="tel:01051666449">전화</a><a class="cr-btn" href="sms:01051666449">문자</a></div>
     </div>
   </section>
 
@@ -326,18 +346,20 @@
     <div class="letters">
       <div class="letter-card reveal">
         <div class="diary-photo"><img src="assets/letter/1.jpg" alt="민수가 유빈에게" loading="lazy" decoding="async" /></div>
-        <div class="to">To. 사랑하는 유빈에게</div>
-        <div class="body">이곳에 신랑이 신부에게 전하는
-짧은 편지를 적어주세요.
-그림일기처럼 자유롭게 :)</div>
+        <div class="to">To. 사랑하는 유빈이에게</div>
+        <div class="body">너를 만난 날부터
+평범했던 일상이 가장 행복한 시간이 되었어.
+이제는 오늘보다 더 행복한 내일을,
+평생의 배우자 함께 만들어가고 싶어.</div>
         <div class="from">From. 민수</div>
       </div>
       <div class="letter-card reveal">
         <div class="diary-photo"><img src="assets/letter/2.jpg" alt="유빈이 민수에게" loading="lazy" decoding="async" /></div>
-        <div class="to">To. 사랑하는 민수에게</div>
-        <div class="body">이곳에 신부가 신랑에게 전하는
-짧은 편지를 적어주세요.
-우리의 이야기를 담아도 좋아요.</div>
+        <div class="to">To. 사랑하는 민수오빠에게</div>
+        <div class="body">앞으로의 삶이 오빠와 함께 하는
+시간들로 채워진다는게 행복해.
+서로의 행복과 고난에 동참하는
+베프가 되어주자!</div>
         <div class="from">From. 유빈</div>
       </div>
     </div>
@@ -366,6 +388,7 @@
     <div class="title-ko reveal">오시는 길</div>
     <div class="map-embed reveal" id="mapBox"></div>
     <div class="place-name reveal">더포레</div>
+    <div class="place-hall reveal">5층 베일리홀</div>
     <div class="place-line reveal">
       <span class="place-addr">충남 천안시 동남구 다가말2길 104</span>
       <button class="addr-copy" onclick="copyText('충남 천안시 동남구 다가말2길 104')">복사</button>
@@ -373,6 +396,7 @@
     <div class="btn-row reveal">
       <button class="mini-btn primary" onclick="window.open('https://map.naver.com/p/search/충남 천안시 동남구 다가말2길 104','_blank')">네이버 지도</button>
       <button class="mini-btn" onclick="window.open('https://map.kakao.com/?q=충남 천안시 동남구 다가말2길 104','_blank')">카카오맵</button>
+      <a class="mini-btn" href="tel:0415745000">예식장 041-574-5000</a>
     </div>
     <div class="way reveal">
       <div><h4>🚄 KTX · 기차</h4><p>천안아산역(KTX·SRT)에서 차로 약 20분<br/>천안역(1호선·장항선)에서 차로 약 15분</p></div>
@@ -387,12 +411,12 @@
     <div class="title-ko reveal">마음 전하실 곳</div>
     <p class="reveal" style="font-size:14px;color:var(--ink-soft);margin-bottom:26px;">참석이 어려우신 분들을 위해<br/>계좌번호를 안내드립니다.</p>
     <div class="acc-sheet reveal">
-      <div class="acc-row"><div><div class="who">신랑 진민수</div><div class="num">카카오뱅크 3333-00-000000</div></div><button class="copy-btn" onclick="copyText('333300000000')">복사</button></div>
-      <div class="acc-row"><div><div class="who">신부 이유빈</div><div class="num">토스뱅크 1000-0000-0000</div></div><button class="copy-btn" onclick="copyText('100000000000')">복사</button></div>
-      <div class="acc-row"><div><div class="who">신랑부 진주관</div><div class="num">국민 000-00-0000-000</div></div><button class="copy-btn" onclick="copyText('0000000000000')">복사</button></div>
-      <div class="acc-row"><div><div class="who">신부부 이창헌</div><div class="num">우리 0000-000-000000</div></div><button class="copy-btn" onclick="copyText('0000000000000')">복사</button></div>
-      <div class="acc-row"><div><div class="who">신랑모 배문주</div><div class="num">신한 000-000-000000</div></div><button class="copy-btn" onclick="copyText('000000000000')">복사</button></div>
-      <div class="acc-row"><div><div class="who">신부모 임수경</div><div class="num">하나 000-000000-00000</div></div><button class="copy-btn" onclick="copyText('00000000000')">복사</button></div>
+      <div class="acc-row"><div><div class="who">신랑 진민수</div><div class="num"><span class="bank">토스뱅크</span>1000-9195-4646</div></div><button class="copy-btn" onclick="copyText('100091954646')">복사</button></div>
+      <div class="acc-row"><div><div class="who">신부 이유빈</div><div class="num"><span class="bank">국민</span>452901-04-223872</div></div><button class="copy-btn" onclick="copyText('45290104223872')">복사</button></div>
+      <div class="acc-row"><div><div class="who">신랑부 진주관</div><div class="num"><span class="bank">케이뱅크</span>100-190-790134</div></div><button class="copy-btn" onclick="copyText('100190790134')">복사</button></div>
+      <div class="acc-row"><div><div class="who">신부부 이창헌</div><div class="num"><span class="bank">하나</span>736-910036-33707</div></div><button class="copy-btn" onclick="copyText('73691003633707')">복사</button></div>
+      <div class="acc-row"><div><div class="who">신랑모 배문주</div><div class="num"><span class="bank">하나</span>633-910208-59507</div></div><button class="copy-btn" onclick="copyText('63391020859507')">복사</button></div>
+      <div class="acc-row"><div><div class="who">신부모 임수경</div><div class="num"><span class="bank">농협</span>352-0318-7426-33</div></div><button class="copy-btn" onclick="copyText('3520318742633')">복사</button></div>
     </div>
   </section>
 
@@ -475,6 +499,8 @@
     el.innerHTML = diff>0?`민수 ♥ 유빈의 결혼식이 <b>${diff}일</b> 남았습니다.`:diff===0?`오늘은 <b>바로 그날</b>입니다 🎉`:`함께해 주셔서 감사합니다.`; })();
 
   function copyText(t,m){ navigator.clipboard.writeText(t).then(()=>showToast(m||'복사되었습니다')).catch(()=>showToast('복사되었습니다')); }
+  function toggleContacts(){ const p=document.getElementById('contactPanel'), b=document.getElementById('contactBtn');
+    const open=p.hidden; p.hidden=!open; b.textContent=open?'연락처 닫기':'연락처 보기'; b.setAttribute('aria-expanded',String(open)); }
   const toast=document.getElementById('toast'); let tt;
   function showToast(m){ toast.textContent=m; toast.classList.add('show'); clearTimeout(tt); tt=setTimeout(()=>toast.classList.remove('show'),1800); }
 
