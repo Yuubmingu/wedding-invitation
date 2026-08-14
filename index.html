@@ -5,11 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>진민수 · 이유빈 결혼합니다</title>
 
-<!-- ▼ 카톡/링크 공유 미리보기 (배포 후 실제 이미지 URL로 교체) -->
+<!-- ▼ 카톡/링크 공유 미리보기 -->
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://yuubmingu.github.io/wedding-invitation/" />
 <meta property="og:title" content="진민수 · 이유빈 결혼합니다" />
 <meta property="og:description" content="2026년 10월 9일 금요일 오후 1시 · 천안 더포레. 저희 두 사람의 시작에 함께해 주세요." />
-<meta property="og:image" content="assets/photos/IMGL1184.jpg" />
+<meta property="og:image" content="https://yuubmingu.github.io/wedding-invitation/assets/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="800" />
+<meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -235,7 +239,7 @@
 
   <!-- 커버 : 하트 -->
   <section class="cover">
-    <img class="cover-photo" src="assets/photos/BLAC5088.jpg" alt="메인 사진" fetchpriority="high" decoding="async" />
+    <img class="cover-photo" src="assets/cover.jpg" alt="메인 사진" fetchpriority="high" decoding="async" />
     <div class="cover-veil"></div>
     <div class="cover-deco">
       <span class="cover-spark s1">✦</span>
@@ -272,8 +276,8 @@
     <span class="rough-heart h8"></span>
     <div class="cap reveal">하나님이 짝지어 주신 것을<br/>사람이 나누지 못할지니라 <span>마태복음 19:6</span></div>
     <div class="twin reveal">
-      <figure class="a"><img src="assets/photos/IMGL1184.jpg" alt="사진 1" loading="lazy" decoding="async" /></figure>
-      <figure class="b"><img src="assets/photos/BLAC4782.jpg" alt="사진 2" loading="lazy" decoding="async" /></figure>
+      <figure class="a"><img src="assets/main/1.jpg" alt="사진 1" loading="lazy" decoding="async" /></figure>
+      <figure class="b"><img src="assets/main/2.jpg" alt="사진 2" loading="lazy" decoding="async" /></figure>
     </div>
   </section>
 
@@ -297,9 +301,9 @@
       <div class="child">장남 <b>민수</b></div>
     </div>
     <div class="fam-block reveal">
-      <div class="fam-main"><div class="ph">신랑측 사진 자리</div></div>
-      <div class="cut l"><div class="ph">민수<br/>어릴 적</div></div>
-      <div class="cut r"><div class="ph">부모님<br/>젊을 적</div></div>
+      <div class="fam-main"><img src="assets/family/groom-1.jpg" alt="신랑측 가족" loading="lazy" decoding="async" /></div>
+      <div class="cut l"><img src="assets/family/groom-2.jpg" alt="민수 어릴 적" loading="lazy" decoding="async" /></div>
+      <div class="cut r"><img src="assets/family/groom-3.jpg" alt="신랑 부모님 젊을 적" loading="lazy" decoding="async" /></div>
     </div>
 
     <div class="family-host host reveal">
@@ -308,9 +312,9 @@
       <div class="child">장녀 <b>유빈</b></div>
     </div>
     <div class="fam-block reveal">
-      <div class="fam-main"><img src="assets/family/yubeen-family.jpg" alt="신부측 가족" loading="lazy" decoding="async" /></div>
-      <div class="cut l"><div class="ph">유빈<br/>어릴 적</div></div>
-      <div class="cut r"><div class="ph">부모님<br/>젊을 적</div></div>
+      <div class="fam-main"><img src="assets/family/bride-1.jpg" alt="신부측 가족" loading="lazy" decoding="async" /></div>
+      <div class="cut l"><img src="assets/family/bride-2.jpg" alt="유빈 어릴 적" loading="lazy" decoding="async" /></div>
+      <div class="cut r"><img src="assets/family/bride-3.jpg" alt="신부 부모님 젊을 적" loading="lazy" decoding="async" /></div>
     </div>
     <div class="fam-note reveal">부모님의 사랑으로 자라난 두 사람이<br/>이제 서로의 가장 가까운 가족이 됩니다.</div>
   </section>
@@ -321,7 +325,7 @@
     <div class="title-ko reveal">서로에게</div>
     <div class="letters">
       <div class="letter-card reveal">
-        <div class="diary-photo"><img src="assets/photos/IMGL1509.jpg" alt="민수가 유빈에게" loading="lazy" decoding="async" /></div>
+        <div class="diary-photo"><img src="assets/letter/1.jpg" alt="민수가 유빈에게" loading="lazy" decoding="async" /></div>
         <div class="to">To. 사랑하는 유빈에게</div>
         <div class="body">이곳에 신랑이 신부에게 전하는
 짧은 편지를 적어주세요.
@@ -329,7 +333,7 @@
         <div class="from">From. 민수</div>
       </div>
       <div class="letter-card reveal">
-        <div class="diary-photo"><img src="assets/photos/IMGL2105.jpg" alt="유빈이 민수에게" loading="lazy" decoding="async" /></div>
+        <div class="diary-photo"><img src="assets/letter/2.jpg" alt="유빈이 민수에게" loading="lazy" decoding="async" /></div>
         <div class="to">To. 사랑하는 민수에게</div>
         <div class="body">이곳에 신부가 신랑에게 전하는
 짧은 편지를 적어주세요.
@@ -433,9 +437,10 @@
   const SUPABASE_URL = "", SUPABASE_KEY = "", TABLE = "guestbook";
   const USE_DB = SUPABASE_URL && SUPABASE_KEY;
 
-  /* 갤러리 30장 (우리 사진) */
+  /* 갤러리 (우리 사진) — 01.jpg 부터 순서대로 표시 */
   const P = "assets/photos/";
-  const urls = ["BLAC4518.jpg","BLAC4519.jpg","BLAC4524.jpg","BLAC4782.jpg","BLAC5088.jpg","BLAC5091.jpg","BLAC5097.jpg","BLAC5154.jpg","BLAC5237.jpg","BLAC5244.jpg","BLAC5260.jpg","BLAC5261.jpg","BLAC5285.jpg","BLAC5287.jpg","BLAC5290.jpg","BLAC5291.jpg","BLAC5348.jpg","BLAC5364.jpg","IMGL1184.jpg","IMGL1333.jpg","IMGL1450.jpg","IMGL1473.jpg","IMGL1509.jpg","IMGL1517.jpg","IMGL1801.jpg","IMGL1993.jpg","IMGL1998.jpg","IMGL2004.jpg","IMGL2105.jpg","IMGL2122.jpg"].map(f=>P+f);
+  const GALLERY_COUNT = 32;
+  const urls = Array.from({length:GALLERY_COUNT},(_,i)=>P+String(i+1).padStart(2,'0')+".jpg");
   const grid=document.getElementById('grid');
   urls.forEach((u,i)=>{ const img=document.createElement('img'); img.src=u; img.loading='lazy'; img.decoding='async'; img.onclick=()=>openViewer(i); grid.appendChild(img); });
   document.getElementById('galCount').textContent = `총 ${urls.length}장`;
