@@ -80,12 +80,19 @@
   .cover-spark.s1 { left:34px; top:52%; }
   .cover-spark.s2 { right:44px; top:56%; font-size:13px; }
   .cover-spark.s3 { left:54%; bottom:150px; font-size:16px; }
-  .heart-stage { position:absolute; top:94px; left:50%; transform:translateX(-50%) scale(1.28); transform-origin:top center; width:252px; height:226px; display:flex; align-items:center; justify-content:center; z-index:3; }
+  /* 신랑 머리에 닿지 않도록 1.28 에서 10% 줄였습니다(안의 글자도 함께 축소) */
+  .heart-stage { position:absolute; top:88px; left:50%; transform:translateX(-50%) scale(1.152); transform-origin:top center; width:252px; height:226px; display:flex; align-items:center; justify-content:center; z-index:3; }
   .heart-stage svg { position:absolute; width:250px; height:226px; }
   .heart-stage svg.back { transform:rotate(-9deg) translate(8px,9px) scale(1.02); filter:drop-shadow(0 6px 10px rgba(0,0,0,.5)); }
   .heart-stage svg.front { transform:rotate(5deg) translate(-2px,0); filter:drop-shadow(3px 6px 6px rgba(0,0,0,.45)); }
-  /* Chalkduster 로 렌더해 이미지로 고정했습니다(한글은 Chalkduster 에 글리프가 없어 손글씨 서체) */
-  .heart-date-img { position:relative; z-index:4; width:160px; height:auto; display:block; transform:translateY(4px) rotate(2deg); }
+  /* 예식 정보는 상단 SAVE THE DATE 와 같은 서체(Gowun Batang). 구글 웹폰트라
+     모든 기기에서 그대로 로드되므로 이미지로 굽지 않고 실제 글자로 둡니다.
+     하트가 scale 되면 이 글자도 함께 커지고 작아집니다. */
+  .heart-names { position:relative; z-index:4; text-align:center; font-family:var(--serif2); color:#2b2320; transform:translateY(10px) rotate(2deg); }
+  .heart-names .heart-date { font-size:17px; font-weight:700; letter-spacing:3px; line-height:1.45; }
+  .heart-names .heart-time { font-size:11.5px; letter-spacing:2.5px; margin-top:3px; color:#5b373e; }
+  /* 장소는 하트가 좁아지는 아래쪽에 놓이므로 가로 폭을 날짜 줄보다 좁게 유지합니다 */
+  .heart-names .heart-place { font-size:10.5px; letter-spacing:1.2px; margin-top:8px; font-weight:700; }
   .scroll-hint { position:absolute; bottom:26px; left:50%; transform:translateX(-50%); width:1px; height:34px; background:linear-gradient(#fff,transparent); z-index:3; animation:drop 2.2s ease-in-out infinite; }
   @keyframes drop { 0%,100%{opacity:.15;} 50%{opacity:.9;} }
 
@@ -287,7 +294,11 @@
     <div class="heart-stage">
       <svg class="back" viewBox="0 0 100 90"><path d="M47 84 L37 76 L20 66 L8 50 L5 35 L12 18 L27 9 L40 14 L51 29 L62 11 L78 8 L92 18 L97 35 L91 52 L77 66 L59 78 Z" fill="#b06b78"/></svg>
       <svg class="front" viewBox="0 0 100 90"><path d="M49 84 L39 78 L25 66 L10 52 L6 34 L14 17 L31 10 L43 17 L52 31 L63 13 L79 7 L93 18 L96 34 L88 53 L74 68 L58 77 Z" fill="#d29aa4"/></svg>
-      <img class="heart-date-img" src="assets/heart-date.png" alt="2026년 10월 9일 금요일 오후 1시 · 천안 더포레 (THE FORET, CHEONAN)" fetchpriority="high" />
+      <div class="heart-names">
+        <div class="heart-date">2026 · 10 · 09</div>
+        <div class="heart-time">FRI · PM 1:00</div>
+        <div class="heart-place">THE FORE, CHEONAN</div>
+      </div>
     </div>
     <!-- Snell Roundhand 로 렌더해 이미지로 고정했습니다(폰트 없는 기기에서도 그대로 보입니다) -->
     <img class="cover-script" src="assets/cover-title.png" alt="We&rsquo;re getting married" fetchpriority="high" />
