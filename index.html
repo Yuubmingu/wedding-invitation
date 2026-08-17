@@ -185,7 +185,8 @@
   .letter-card .diary-photo { margin:0 0 22px; border-radius:6px; overflow:hidden; background:var(--bg2); }
   .letter-card .diary-photo img { width:100%; display:block; aspect-ratio:4/5; object-fit:cover; }
   .letter-card:nth-child(2) .diary-photo img { object-position:58% center; }
-  .letter-card .body { font-size:14.5px; line-height:2.15; color:var(--ink); white-space:pre-line; }
+  /* keep-all : 한글이 단어 중간에서 잘리지 않고 어절 단위로 줄바꿈됩니다 */
+  .letter-card .body { font-size:14.5px; line-height:2.15; color:var(--ink); white-space:pre-line; word-break:keep-all; }
   .letter-card .from { text-align:right; margin-top:18px; font-family:var(--serif); font-size:13px; color:var(--pink); letter-spacing:.5px; }
   /* 신부 편지는 본문만 오른쪽 정렬, 서명은 왼쪽 */
   .letter-card:nth-child(2) .body { text-align:right; }
@@ -383,17 +384,17 @@
         <div class="diary-photo"><img src="assets/letter/1.jpg" alt="민수가 유빈에게" loading="lazy" decoding="async" /></div>
         <div class="body">너를 만난 날부터
 평범했던 일상이 가장 행복한 시간이 되었어.
-이제는 오늘보다 더 행복한 내일을,
+이제는 오늘보다 더 행복한 내일을
 함께 만들어가고 싶어.</div>
-        <div class="from">신랑 민수</div>
+        <div class="from">신랑 진민수</div>
       </div>
       <div class="letter-card reveal">
         <div class="diary-photo"><img src="assets/letter/2.jpg" alt="유빈이 민수에게" loading="lazy" decoding="async" /></div>
-        <div class="body">앞으로의 삶이 오빠와 함께 하는
-시간들로 채워진다는게 행복해.
-서로의 행복과 고난에 동참하는
-베프가 되어주자!</div>
-        <div class="from">신부 유빈</div>
+        <div class="body">앞으로 우리의 삶이 함께하는
+시간으로 채워진다는 게 기대가 돼.
+서로의 고난과 행복에 동참하며 곁을 지키는
+가장 가까운 동역자가 되어주자!</div>
+        <div class="from">신부 이유빈</div>
       </div>
     </div>
   </section>
