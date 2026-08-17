@@ -484,7 +484,7 @@
 
   /* 갤러리 (우리 사진) — 01.jpg 부터 순서대로 표시 */
   const P = "assets/photos/";
-  const GALLERY_COUNT = 32;
+  const GALLERY_COUNT = 25;
   const urls = Array.from({length:GALLERY_COUNT},(_,i)=>P+String(i+1).padStart(2,'0')+".jpg");
   const grid=document.getElementById('grid');
   urls.forEach((u,i)=>{ const img=document.createElement('img'); img.src=u; img.loading='lazy'; img.decoding='async'; img.onclick=()=>openViewer(i); grid.appendChild(img); });
