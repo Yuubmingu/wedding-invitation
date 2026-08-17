@@ -187,8 +187,9 @@
   .letter-card:nth-child(2) .diary-photo img { object-position:58% center; }
   .letter-card .body { font-size:14.5px; line-height:2.15; color:var(--ink); white-space:pre-line; }
   .letter-card .from { text-align:right; margin-top:18px; font-family:var(--serif); font-size:13px; color:var(--pink); letter-spacing:.5px; }
-  /* 신부 편지는 오른쪽 정렬 */
+  /* 신부 편지는 본문만 오른쪽 정렬, 서명은 왼쪽 */
   .letter-card:nth-child(2) .body { text-align:right; }
+  .letter-card:nth-child(2) .from { text-align:left; }
 
   /* ── 갤러리 ── */
   .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
