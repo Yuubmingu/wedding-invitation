@@ -102,7 +102,7 @@
   /* 하트가 기울어져 있어도 글자는 절대 수평 — 회전을 걸지 않습니다.
      크기·자간도 커버 높이 비율이라 하트와 같이 커지고 작아집니다. */
   .heart-names { position:relative; z-index:4; text-align:center; font-family:var(--serif2); color:#2b2320;
-    transform:translateY(calc(var(--coverH) * .026)); }
+    transform:translateY(calc(var(--coverH) * .020)); }
   .heart-names .heart-date { font-size:calc(var(--coverH) * .0166); letter-spacing:calc(var(--coverH) * .0014); font-weight:700; line-height:1.4; }
   .heart-names .heart-time { font-size:calc(var(--coverH) * .0117); letter-spacing:calc(var(--coverH) * .0011); margin-top:calc(var(--coverH) * .0037); color:#5b373e; }
   /* 장소는 하트가 좁아지는 아래쪽에 놓이므로 가로 폭을 날짜 줄보다 좁게 유지합니다 */
@@ -122,7 +122,8 @@
   .twin figure::after { content:none; }
   .twin figure img { width:100%; display:block; aspect-ratio:3/4; object-fit:cover; }
   .twin .b img { object-position:68% center; }
-  .twin .a { left:-3%; top:0; transform:rotate(-5deg); z-index:1; }
+  /* 첫 번째 폴라로이드 테두리는 커버 하트 중 뒤쪽 진한 색과 동일 */
+  .twin .a { left:-3%; top:0; transform:rotate(-5deg); z-index:1; background:#b06b78; }
   .twin .b { right:-3%; top:330px; transform:rotate(5deg); z-index:2; }
   .mainphoto .cap { text-align:center; margin:0 0 30px; font-family:var(--serif); font-size:15px; color:var(--ink); letter-spacing:1px; line-height:2; }
   .mainphoto .cap span { display:block; color:var(--pink); font-size:12px; letter-spacing:1px; margin-top:4px; }
