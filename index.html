@@ -69,23 +69,23 @@
   .name-tag { position:absolute; z-index:3; font-family:var(--script); font-style:italic; font-size:24px; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,.6); letter-spacing:1px; white-space:nowrap; }
   .name-tag.groom { top:70%; left:9%; transform:rotate(-5deg); }
   .name-tag.bride { top:70%; right:8%; transform:rotate(5deg); }
-  .cover-top { position:absolute; top:40px; left:0; right:0; text-align:center; z-index:4; }
+  .cover-top { position:absolute; top:36px; left:0; right:0; text-align:center; z-index:4; }
   .cover-top .lab { font-family:var(--serif2); font-size:11px; letter-spacing:5px; color:#5e3138; text-transform:uppercase;
     text-shadow:0 1px 3px rgba(255,255,255,.55); }
-  /* Snell Roundhand 캘리그래피 타이틀. 하트 아래쪽 끝에 걸치도록 배치합니다. */
-  .cover-script { position:absolute; top:284px; left:50%; transform:translateX(-50%); width:90%; max-width:340px; height:auto; z-index:5;
-    filter:drop-shadow(0 3px 7px rgba(0,0,0,.3)); }
+  /* Snell Roundhand 캘리그래피 타이틀. SAVE THE DATE 바로 아래, 하트 위쪽에 겹칩니다. */
+  .cover-script { position:absolute; top:60px; left:50%; transform:translateX(-50%); width:92%; max-width:404px; height:auto; z-index:5;
+    filter:drop-shadow(0 3px 7px rgba(0,0,0,.35)); }
   .cover-deco { position:absolute; inset:0; z-index:3; pointer-events:none; font-family:var(--script); color:#fff; }
   .cover-spark { position:absolute; font-family:var(--serif2); font-size:18px; color:var(--pink-soft); text-shadow:0 2px 8px rgba(0,0,0,.4); }
   .cover-spark.s1 { left:34px; top:52%; }
   .cover-spark.s2 { right:44px; top:56%; font-size:13px; }
   .cover-spark.s3 { left:54%; bottom:150px; font-size:16px; }
-  .heart-stage { position:absolute; top:62px; left:50%; transform:translateX(-50%) scale(1.092); transform-origin:top center; width:252px; height:226px; display:flex; align-items:center; justify-content:center; z-index:3; }
+  .heart-stage { position:absolute; top:94px; left:50%; transform:translateX(-50%) scale(1.28); transform-origin:top center; width:252px; height:226px; display:flex; align-items:center; justify-content:center; z-index:3; }
   .heart-stage svg { position:absolute; width:250px; height:226px; }
   .heart-stage svg.back { transform:rotate(-9deg) translate(8px,9px) scale(1.02); filter:drop-shadow(0 6px 10px rgba(0,0,0,.5)); }
   .heart-stage svg.front { transform:rotate(5deg) translate(-2px,0); filter:drop-shadow(3px 6px 6px rgba(0,0,0,.45)); }
   /* Chalkduster 로 렌더해 이미지로 고정했습니다(한글은 Chalkduster 에 글리프가 없어 손글씨 서체) */
-  .heart-date-img { position:relative; z-index:4; width:152px; height:auto; display:block; transform:translateY(6px) rotate(2deg); }
+  .heart-date-img { position:relative; z-index:4; width:160px; height:auto; display:block; transform:translateY(4px) rotate(2deg); }
   .scroll-hint { position:absolute; bottom:26px; left:50%; transform:translateX(-50%); width:1px; height:34px; background:linear-gradient(#fff,transparent); z-index:3; animation:drop 2.2s ease-in-out infinite; }
   @keyframes drop { 0%,100%{opacity:.15;} 50%{opacity:.9;} }
 
@@ -287,7 +287,7 @@
     <div class="heart-stage">
       <svg class="back" viewBox="0 0 100 90"><path d="M47 84 L37 76 L20 66 L8 50 L5 35 L12 18 L27 9 L40 14 L51 29 L62 11 L78 8 L92 18 L97 35 L91 52 L77 66 L59 78 Z" fill="#b06b78"/></svg>
       <svg class="front" viewBox="0 0 100 90"><path d="M49 84 L39 78 L25 66 L10 52 L6 34 L14 17 L31 10 L43 17 L52 31 L63 13 L79 7 L93 18 L96 34 L88 53 L74 68 L58 77 Z" fill="#d29aa4"/></svg>
-      <img class="heart-date-img" src="assets/heart-date.png" alt="2026년 10월 9일 금요일 오후 1시 · 천안 더포레" fetchpriority="high" />
+      <img class="heart-date-img" src="assets/heart-date.png" alt="2026년 10월 9일 금요일 오후 1시 · 천안 더포레 (THE FORET, CHEONAN)" fetchpriority="high" />
     </div>
     <!-- Snell Roundhand 로 렌더해 이미지로 고정했습니다(폰트 없는 기기에서도 그대로 보입니다) -->
     <img class="cover-script" src="assets/cover-title.png" alt="We&rsquo;re getting married" fetchpriority="high" />
