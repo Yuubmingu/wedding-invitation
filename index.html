@@ -129,15 +129,22 @@
   .twin .b { right:-3%; top:330px; transform:rotate(5deg); z-index:2; }
   .mainphoto .cap { text-align:center; margin:0 0 30px; font-family:var(--serif); font-size:15px; color:var(--ink); letter-spacing:1px; line-height:2; }
   .mainphoto .cap span { display:block; color:var(--pink); font-size:12px; letter-spacing:1px; margin-top:4px; }
-  .rough-heart { position:absolute; z-index:0; width:26px; height:24px; background:#e94f72; clip-path:polygon(51% 88%, 16% 61%, 7% 34%, 19% 12%, 42% 16%, 51% 30%, 63% 12%, 86% 14%, 97% 36%, 87% 62%); opacity:.8; filter:drop-shadow(0 4px 8px rgba(0,0,0,.18)); pointer-events:none; }
-  .rough-heart.h1 { left:22px; top:104px; transform:rotate(-14deg) scale(.72); }
-  .rough-heart.h2 { right:24px; top:116px; transform:rotate(17deg) scale(1.05); }
-  .rough-heart.h3 { left:14px; top:286px; transform:rotate(9deg) scale(.58); }
-  .rough-heart.h4 { right:12px; top:286px; transform:rotate(-11deg) scale(.75); }
-  .rough-heart.h5 { left:18px; bottom:80px; transform:rotate(21deg) scale(.92); }
-  .rough-heart.h6 { right:26px; bottom:132px; transform:rotate(-22deg) scale(.55); }
-  .rough-heart.h7 { left:50%; bottom:36px; transform:translateX(-50%) rotate(8deg) scale(.64); }
-  .rough-heart.h8 { right:138px; top:184px; transform:rotate(13deg) scale(.56); opacity:.65; }
+  /* 손그림 낙서 장식 : 하트 · 반짝이 · 리본. SVG 라 확대해도 선명하고 용량이 거의 없습니다.
+     선 굵기가 도형마다 달라 보이도록 stroke-width 를 조금씩 다르게 줍니다. */
+  .doodle { position:absolute; z-index:0; color:#e7a2b0; pointer-events:none;
+    filter:drop-shadow(0 3px 6px rgba(0,0,0,.28)); }
+  .doodle svg { display:block; width:100%; height:100%; overflow:visible; }
+  .doodle .ln { fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; }
+  .doodle .fl { fill:currentColor; }
+  .d1 { left:16px;  top:86px;   width:52px; height:52px; transform:rotate(-8deg); }
+  .d2 { right:20px; top:112px;  width:40px; height:40px; transform:rotate(10deg); color:#efb9c4; }
+  .d3 { left:26px;  top:268px;  width:26px; height:24px; transform:rotate(-14deg); }
+  .d4 { right:18px; top:300px;  width:34px; height:31px; transform:rotate(12deg); color:#efb9c4; }
+  .d5 { left:12px;  bottom:150px; width:30px; height:30px; transform:rotate(6deg); }
+  .d6 { right:26px; bottom:196px; width:22px; height:20px; transform:rotate(-18deg); }
+  .d7 { left:50%;   bottom:34px;  width:64px; height:42px; transform:translateX(-50%) rotate(-3deg); color:#efb9c4; }
+  .d8 { right:132px; top:196px;  width:20px; height:20px; transform:rotate(14deg); opacity:.8; }
+  .d9 { left:120px; bottom:120px; width:18px; height:17px; transform:rotate(20deg); opacity:.85; }
 
   /* ── 인사말 ── */
   .greeting { text-align:center; }
@@ -326,14 +333,16 @@
 
   <!-- 메인 사진 : 핑크 폴라로이드 + 배경 하트 -->
   <section class="mainphoto">
-    <span class="rough-heart h1"></span>
-    <span class="rough-heart h2"></span>
-    <span class="rough-heart h3"></span>
-    <span class="rough-heart h4"></span>
-    <span class="rough-heart h5"></span>
-    <span class="rough-heart h6"></span>
-    <span class="rough-heart h7"></span>
-    <span class="rough-heart h8"></span>
+    <!-- ▼ 손그림 낙서 장식 (첨부 그림 참고: 반짝이 · 하트 · 리본) -->
+    <span class="doodle d1"><svg viewBox="0 0 100 100"><path class="ln" stroke-width="5" d="M50 5 L57 37 L79 15 L63 44 L95 50 L63 56 L79 85 L57 63 L50 95 L43 63 L21 85 L37 56 L5 50 L37 44 L21 15 L43 37 Z"/></svg></span>
+    <span class="doodle d2"><svg viewBox="0 0 100 100"><path class="ln" stroke-width="5.5" d="M50 4 C53 33 66 47 96 50 C66 53 53 67 50 96 C47 67 34 53 4 50 C34 47 47 33 50 4 Z"/></svg></span>
+    <span class="doodle d3"><svg viewBox="0 0 100 92"><path class="fl" d="M50 87 C43 80 13 59 8 36 C4 16 19 4 33 8 C42 11 48 19 50 26 C52 19 59 10 68 7 C82 3 96 15 92 35 C87 58 57 80 50 87 Z"/></svg></span>
+    <span class="doodle d4"><svg viewBox="0 0 100 92"><path class="ln" stroke-width="6.5" d="M50 86 C44 79 14 59 9 37 C5 17 20 5 33 9 C42 12 48 20 50 26 C52 20 58 11 67 8 C81 4 95 16 91 36 C86 58 56 79 50 86 Z"/><path class="ln" stroke-width="3.4" d="M30 32 L44 52 M40 25 L57 50 M51 24 L67 45 M63 25 L77 40"/></svg></span>
+    <span class="doodle d5"><svg viewBox="0 0 100 100"><path class="ln" stroke-width="6" d="M50 8 C53 34 65 47 92 50 C65 53 53 66 50 92 C47 66 35 53 8 50 C35 47 47 34 50 8 Z"/></svg></span>
+    <span class="doodle d6"><svg viewBox="0 0 100 92"><path class="fl" d="M50 87 C43 80 13 59 8 36 C4 16 19 4 33 8 C42 11 48 19 50 26 C52 19 59 10 68 7 C82 3 96 15 92 35 C87 58 57 80 50 87 Z"/></svg></span>
+    <span class="doodle d7"><svg viewBox="0 0 120 80"><g class="ln" stroke-width="5"><path d="M56 33 C42 15 18 11 12 22 C6 33 24 44 54 39"/><path d="M64 33 C78 15 102 11 108 22 C114 33 96 44 66 39"/><path d="M54 40 C46 53 33 62 18 66"/><path d="M66 40 C74 53 88 63 104 68"/><path d="M56 30 C58 27 62 27 64 30 C66 34 64 39 60 39 C56 39 54 34 56 30 Z"/></g></svg></span>
+    <span class="doodle d8"><svg viewBox="0 0 100 100"><path class="ln" stroke-width="7" d="M50 10 C52 35 64 48 90 50 C64 52 52 65 50 90 C48 65 36 52 10 50 C36 48 48 35 50 10 Z"/></svg></span>
+    <span class="doodle d9"><svg viewBox="0 0 100 92"><path class="fl" d="M50 87 C43 80 13 59 8 36 C4 16 19 4 33 8 C42 11 48 19 50 26 C52 19 59 10 68 7 C82 3 96 15 92 35 C87 58 57 80 50 87 Z"/></svg></span>
     <div class="cap reveal">하나님이 짝지어 주신 것을<br/>사람이 나누지 못할지니라 <span>마태복음 19:6</span></div>
     <div class="twin reveal">
       <figure class="a"><img src="assets/main/1.jpg" alt="사진 1" loading="lazy" decoding="async" /></figure>
