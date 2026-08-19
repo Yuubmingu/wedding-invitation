@@ -194,12 +194,13 @@
      원본마다 인물이 차지하는 비율이 달라, 폭이 아니라 '인물 키'를 기준으로 크기를 맞춥니다. */
   .cut { position:absolute; z-index:2; }
   .cut img { display:block; width:auto; filter:drop-shadow(0 6px 12px rgba(90,40,50,.34)); }
-  .cut.gc img { height:82px; }
-  .cut.gp img { height:120px; }
-  .cut.bc img { height:118px; }
-  .cut.bp img { height:116px; }
-  .cut.l { left:-4%; top:196px; transform:rotate(-5deg); }
-  .cut.r { right:-4%; top:104px; transform:rotate(5deg); }
+  .cut.gc img { height:118px; }
+  .cut.gp img { height:170px; }
+  .cut.bc img { height:168px; }
+  .cut.bp img { height:164px; }
+  /* 가운데 사진 위로 살짝 겹치도록 안쪽으로 당깁니다 */
+  .cut.l { left:-6%; top:170px; transform:rotate(-5deg); }
+  .cut.r { right:-6%; top:60px;  transform:rotate(5deg); }
   .fam-note { text-align:center; margin:26px auto 0; max-width:320px; font-family:var(--serif); font-size:14px; color:#5c3038; letter-spacing:1px; line-height:2; }
 
   /* ── 서로에게 : 사진 일기 카드 ── */
