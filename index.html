@@ -177,19 +177,30 @@
   .cr-btn.call { color:var(--pink); border-color:rgba(210,154,164,.55); }
 
   /* ── 가족 : 사진 자리 ── */
-  .family-section { padding-top:34px; }
+  /* 가족 섹션 : 배경을 커버 앞 하트와 같은 분홍으로. 그 위 글자는 전부 어둡게 바꿉니다. */
+  .family-section { padding-top:52px; background:var(--pink); --fam-ink:#3a2226; }
+  .family-section .role  { color:#7b3f4b; }
+  .family-section .par   { color:#5c3038; }
+  .family-section .child { color:var(--fam-ink); }
+  .family-section .child b { color:#8d2f42; }
   .family-host { margin:0 auto 24px; text-align:center; }
   .family-host + .fam-block { margin-top:0; }
-  .fam-block { position:relative; max-width:340px; min-height:388px; margin:0 auto 48px; }
-  .fam-main { width:74%; margin:0 auto; background:rgba(255,255,255,.04); position:relative; z-index:1; }
+  .fam-block { position:relative; max-width:340px; min-height:300px; margin:0 auto 40px; }
+  /* 큰 가족사진에 레이스 테두리 (사각형 유지) */
+  .fam-main { width:74%; margin:0 auto; position:relative; z-index:1;
+    border:19px solid transparent; border-image:url("assets/lace.svg") 60 round; }
   .fam-main img { width:100%; display:block; aspect-ratio:1/1; object-fit:cover; }
-  .fam-main .ph { display:flex; align-items:center; justify-content:center; aspect-ratio:1/1; background:var(--bg2); color:var(--ink-soft); font-size:12px; letter-spacing:1px; }
-  .cut { position:absolute; width:29%; overflow:hidden; background:var(--bg2); z-index:2; box-shadow:0 10px 22px rgba(0,0,0,.34); }
-  .cut img { width:100%; display:block; aspect-ratio:3/4; object-fit:cover; }
-  .cut .ph { display:flex; align-items:center; justify-content:center; aspect-ratio:3/4; color:var(--ink-soft); font-size:10px; line-height:1.4; text-align:center; }
-  .cut.l { left:0; top:194px; transform:rotate(-5deg); }
-  .cut.r { right:0; top:92px; transform:rotate(5deg); }
-  .fam-note { text-align:center; margin:26px auto 0; max-width:320px; font-family:var(--serif); font-size:14px; color:var(--ink-soft); letter-spacing:1px; line-height:2; }
+  /* 양옆 작은 사진은 배경을 지운 누끼 PNG — 액자 없이 인물만 얹습니다.
+     원본마다 인물이 차지하는 비율이 달라, 폭이 아니라 '인물 키'를 기준으로 크기를 맞춥니다. */
+  .cut { position:absolute; z-index:2; }
+  .cut img { display:block; width:auto; filter:drop-shadow(0 6px 12px rgba(90,40,50,.34)); }
+  .cut.gc img { height:82px; }
+  .cut.gp img { height:120px; }
+  .cut.bc img { height:118px; }
+  .cut.bp img { height:116px; }
+  .cut.l { left:-4%; top:196px; transform:rotate(-5deg); }
+  .cut.r { right:-4%; top:104px; transform:rotate(5deg); }
+  .fam-note { text-align:center; margin:26px auto 0; max-width:320px; font-family:var(--serif); font-size:14px; color:#5c3038; letter-spacing:1px; line-height:2; }
 
   /* ── 서로에게 : 사진 일기 카드 ── */
   .letters { display:grid; gap:52px; max-width:360px; margin:0 auto; }
@@ -198,13 +209,11 @@
   .letter-card .diary-photo { margin:0 0 22px; border-radius:6px; overflow:hidden; background:var(--bg2); }
   .letter-card .diary-photo img { width:100%; display:block; aspect-ratio:4/5; object-fit:cover; }
   .letter-card:nth-child(2) .diary-photo img { object-position:58% center; }
-  /* 편지 본문은 SD 유니세프 도담체·해맑음체로 렌더한 이미지입니다.
-     두 서체 모두 하객 기기에 없어서, 커버 타이틀과 같은 방식으로 구웠습니다.
-     너비를 px 로 고정해 카드가 넓어져도 글자 크기가 커지지 않게 합니다. */
-  .letter-card .body-img { display:block; width:252px; max-width:100%; height:auto; }
+  /* keep-all : 한글이 단어 중간에서 잘리지 않고 어절 단위로 줄바꿈됩니다 */
+  .letter-card .body { font-size:14.5px; line-height:2.15; color:var(--ink); white-space:pre-line; word-break:keep-all; }
   .letter-card .from { text-align:right; margin-top:18px; font-family:var(--serif); font-size:13px; color:var(--pink); letter-spacing:.5px; }
   /* 신부 편지는 본문만 오른쪽 정렬, 서명은 왼쪽 */
-  .letter-card:nth-child(2) .body-img { width:258px; margin-left:auto; }
+  .letter-card:nth-child(2) .body { text-align:right; }
   .letter-card:nth-child(2) .from { text-align:left; }
 
   /* ── 갤러리 ── */
@@ -393,8 +402,8 @@
     </div>
     <div class="fam-block reveal">
       <div class="fam-main"><img src="assets/family/groom-1.jpg" alt="신랑측 가족" loading="lazy" decoding="async" /></div>
-      <div class="cut l"><img src="assets/family/groom-2.jpg" alt="민수 어릴 적" loading="lazy" decoding="async" /></div>
-      <div class="cut r"><img src="assets/family/groom-3.jpg" alt="신랑 부모님 젊을 적" loading="lazy" decoding="async" /></div>
+      <div class="cut l gc"><img src="assets/family/cut-groom-child.png" alt="민수 어릴 적" loading="lazy" decoding="async" /></div>
+      <div class="cut r gp"><img src="assets/family/cut-groom-parents.png" alt="신랑 부모님 젊을 적" loading="lazy" decoding="async" /></div>
     </div>
 
     <div class="family-host host reveal">
@@ -404,8 +413,8 @@
     </div>
     <div class="fam-block reveal">
       <div class="fam-main"><img src="assets/family/bride-1.jpg" alt="신부측 가족" loading="lazy" decoding="async" /></div>
-      <div class="cut l"><img src="assets/family/bride-2.jpg" alt="유빈 어릴 적" loading="lazy" decoding="async" /></div>
-      <div class="cut r"><img src="assets/family/bride-3.jpg" alt="신부 부모님 젊을 적" loading="lazy" decoding="async" /></div>
+      <div class="cut l bc"><img src="assets/family/cut-bride-child.png" alt="유빈 어릴 적" loading="lazy" decoding="async" /></div>
+      <div class="cut r bp"><img src="assets/family/cut-bride-parents.png" alt="신부 부모님 젊을 적" loading="lazy" decoding="async" /></div>
     </div>
     <div class="fam-note reveal">부모님의 사랑으로 자라난 두 사람이<br/>이제 서로의 가장 가까운 가족이 됩니다.</div>
   </section>
@@ -416,12 +425,18 @@
     <div class="letters">
       <div class="letter-card reveal">
         <div class="diary-photo"><img src="assets/letter/1.jpg" alt="민수가 유빈에게" loading="lazy" decoding="async" /></div>
-        <img class="body-img" src="assets/letter-text-groom.png" loading="lazy" decoding="async" alt="너를 만난 날부터 평범했던 일상이 가장 행복한 시간이 되었어. 이제는 오늘보다 더 행복한 내일을 함께 만들어가고 싶어." />
+        <div class="body">너를 만난 날부터
+평범했던 일상이 가장 행복한 시간이 되었어.
+이제는 오늘보다 더 행복한 내일을
+함께 만들어가고 싶어.</div>
         <div class="from">신랑 진민수</div>
       </div>
       <div class="letter-card reveal">
         <div class="diary-photo"><img src="assets/letter/2.jpg" alt="유빈이 민수에게" loading="lazy" decoding="async" /></div>
-        <img class="body-img" src="assets/letter-text-bride.png" loading="lazy" decoding="async" alt="앞으로 우리의 삶이 함께하는 시간으로 채워진다는 게 기대가 돼. 서로의 고난과 행복에 동참하며 곁을 지키는 가장 가까운 동역자가 되어주자!" />
+        <div class="body">앞으로 우리의 삶이 함께하는
+시간으로 채워진다는 게 기대가 돼.
+서로의 고난과 행복에 동참하며 곁을 지키는
+가장 가까운 동역자가 되어주자!</div>
         <div class="from">신부 이유빈</div>
       </div>
     </div>
