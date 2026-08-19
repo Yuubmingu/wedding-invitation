@@ -196,11 +196,14 @@
   .cut img { display:block; width:auto; filter:drop-shadow(0 6px 12px rgba(90,40,50,.34)); }
   .cut.gc img { height:118px; }
   .cut.gp img { height:170px; }
-  .cut.bc img { height:168px; }
-  .cut.bp img { height:164px; }
+  .cut.bc img { height:150px; }
+  .cut.bp img { height:180px; }
   /* 가운데 사진 위로 살짝 겹치도록 안쪽으로 당깁니다 */
   .cut.l { left:-6%; top:170px; transform:rotate(-5deg); }
   .cut.r { right:-6%; top:60px;  transform:rotate(5deg); }
+  /* 오른쪽 두 장은 각각 조금씩 더 아래로 */
+  .cut.gp { top:86px; }
+  .cut.bp { top:82px; }
   .fam-note { text-align:center; margin:26px auto 0; max-width:320px; font-family:var(--serif); font-size:14px; color:#5c3038; letter-spacing:1px; line-height:2; }
 
   /* ── 서로에게 : 사진 일기 카드 ── */
